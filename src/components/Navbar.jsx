@@ -35,6 +35,10 @@ const Navbar = () => {
     setDropdownTimeout(timeout);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed w-full bg-slate-900 backdrop-blur-xl shadow-2xl border-b border-blue-500/30 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,58 +209,67 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-slate-800 border-t border-blue-500/30">
+        <div className="md:hidden bg-slate-800 border-t border-blue-500/30 max-h-[calc(100vh-80px)] overflow-y-auto">
           <div className="px-4 py-4 space-y-3">
             <a
               href="/"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               Home
             </a>
             <a
               href="/services/sms"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               SMS Solutions
             </a>
             <a
               href="/services/did"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               DID Numbers
             </a>
             <a
               href="/services/voice"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               Voice Services
             </a>
             <a
               href="/pricing"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               Pricing
             </a>
             <a
               href="/blog"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               Blog
             </a>
             <a
               href="/about"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               About
             </a>
             <a
               href="/contact"
+              onClick={handleLinkClick}
               className="block text-gray-300 hover:text-cyan-300 py-2 transition-colors"
             >
               Contact
             </a>
             <a
               href="/free-trial"
+              onClick={handleLinkClick}
               className="block bg-blue-600 text-white px-6 py-2 rounded-full text-center font-medium hover:bg-blue-700 transition-colors"
             >
               Free Trial

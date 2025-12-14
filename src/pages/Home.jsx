@@ -109,6 +109,15 @@ const SplitCornerCard = ({ children, index = 0, delay = 0 }) => {
   }, []);
 
   const getCornerTransform = () => {
+    // Check if mobile (window width < 768px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+    if (isMobile) {
+      return isVisible
+        ? "translate(0, 0) scale(1)"
+        : "translate(0, 20px) scale(0.95)";
+    }
+
     if (isVisible)
       return "translate(0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1)";
 
@@ -174,6 +183,17 @@ const HorizontalScrollCard = ({
   };
 
   const getStyle = () => {
+    // Check if mobile (window width < 768px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+    if (isMobile) {
+      return {
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(20px)",
+        transition: `all 0.6s ease-out ${delay}ms`,
+      };
+    }
+
     if (!isVisible) {
       const isLeft = index < total / 2;
       const distance = isLeft ? -300 : 300;
@@ -328,6 +348,17 @@ const ScatterCard = ({ children, index = 0, delay = 0, total = 3 }) => {
   };
 
   const getStyle = () => {
+    // Check if mobile (window width < 768px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+    if (isMobile) {
+      return {
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(20px)",
+        transition: `all 0.6s ease-out ${delay}ms`,
+      };
+    }
+
     if (!isVisible) {
       const isLeft = index === 0;
       const isRight = index === 2;
@@ -1033,15 +1064,7 @@ const Home = () => {
         </section>
 
         {/* Get Started Section*/}
-        <section 
-          className="py-24 relative overflow-hidden"
-          style={{
-            backgroundImage: "url('/services.jpeg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-          }}
-        >
+        <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
 
@@ -1162,7 +1185,7 @@ const Home = () => {
         </section>
 
         {/* Trusted By Section */}
-        <section className="py-20 bg-slate-950 relative border-t border-white/5">
+        <section className="py-20 bg-slate-950 relative border-t border-white/5 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 animate-fadeInUp">
               <p className="text-sm font-semibold text-blue-400 uppercase tracking-widest">
