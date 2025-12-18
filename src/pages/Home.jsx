@@ -42,7 +42,7 @@ const AnimatedText = ({ text, className = "", delay = 0 }) => {
             transform: isVisible
               ? "translateY(0) scale(1)"
               : "translateY(20px) scale(0.95)",
-            transition: `all 0.6s ease-out ${delay + index * 40}ms`,
+            transition: `all 0.3s ease-out ${delay + index * 20}ms`,
           }}
         >
           {char === " " ? "\u00A0" : char}
@@ -136,7 +136,7 @@ const SplitCornerCard = ({ children, index = 0, delay = 0 }) => {
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getCornerTransform(),
-        transition: `all 1.2s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transition: `all 0.4s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
         perspective: "1500px",
         transformStyle: "preserve-3d",
       }}
@@ -355,7 +355,7 @@ const ScatterCard = ({ children, index = 0, delay = 0, total = 3 }) => {
       return {
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(20px)",
-        transition: `all 0.6s ease-out ${delay}ms`,
+        transition: `all 0.4s ease-out ${delay}ms`,
       };
     }
 
@@ -368,20 +368,32 @@ const ScatterCard = ({ children, index = 0, delay = 0, total = 3 }) => {
       return {
         opacity: 0,
         transform: `translateX(${distance}px) scale(0.5) rotateY(${rotation}deg)`,
-        transition: `all 1.2s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
         perspective: "1500px",
         transformStyle: "preserve-3d",
+      };
+    }
+
+    if (isHovering) {
+      return {
+        opacity: 1,
+        transform: "scale(1.1)",
+        transition: "all 0.2s ease-out",
+        perspective: "1500px",
+        transformStyle: "preserve-3d",
+        zIndex: 10,
+        animation: "none",
       };
     }
 
     return {
       opacity: 1,
       transform: "translateX(0) translateY(0) scale(1) rotateZ(0)",
-      transition: `all 1.2s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+      transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
       perspective: "1500px",
       transformStyle: "preserve-3d",
       animation: `scatterCard${index} 11s infinite cubic-bezier(0.4, 0.0, 0.2, 1)`,
-      animationPlayState: isHovering ? "paused" : "running",
+      animationPlayState: "running",
     };
   };
 
@@ -487,7 +499,7 @@ const Home = () => {
             onError={() => setIsVideoLoaded(false)}
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/HeroVideo.mp4" type="video/mp4" />
+            <source src="/HeroVideo1.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
@@ -527,12 +539,12 @@ const Home = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight">
             <span className="block mb-3 text-white font-extrabold tracking-tight">
               <AnimatedText text="Transform " delay={0} />
-              <AnimatedText text="Your " delay={480} />
-              <AnimatedText text="Telecom" delay={960} />
+              <AnimatedText text="Your " delay={100} />
+              <AnimatedText text="Telecom" delay={200} />
             </span>
 
             <span className="block text-white font-extrabold tracking-tight">
-              <AnimatedText text="Business" delay={1440} />
+              <AnimatedText text="Business" delay={300} />
             </span>
           </h1>
 
@@ -540,7 +552,7 @@ const Home = () => {
           <p className="text-lg md:text-xl text-slate-200 mb-8 max-w-2xl mx-auto font-light">
             <AnimatedText
               text="Enterprise-grade communication solutions with global reach"
-              delay={400}
+              delay={100}
             />
           </p>
 
@@ -551,16 +563,16 @@ const Home = () => {
               className="group relative inline-flex items-center justify-center px-12 py-6 rounded-2xl font-bold text-lg text-white overflow-hidden backdrop-blur-sm"
             >
               {/* Animated background gradient - vibrant */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 rounded-2xl opacity-100 group-hover:opacity-95 transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 rounded-2xl opacity-100 group-hover:opacity-95 transition-all duration-300"></div>
 
               {/* Shimmer effect overlay - enhanced */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 translate-x-[-100%] group-hover:translate-x-[100%] transition-all duration-1000 rounded-2xl"></div>
 
               {/* Glow effect - stronger */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-cyan-300/20 via-blue-300/10 to-purple-300/20 group-hover:from-cyan-300/50 group-hover:via-blue-300/30 group-hover:to-purple-300/50 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-emerald-300/20 via-green-300/10 to-teal-300/20 group-hover:from-emerald-300/50 group-hover:via-green-300/30 group-hover:to-teal-300/50 transition-all duration-300"></div>
 
               {/* Border with enhanced glow */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-cyan-300/70 group-hover:border-white/80 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-cyan-500/60"></div>
+              <div className="absolute inset-0 rounded-2xl border-2 border-emerald-300/70 group-hover:border-white/80 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-emerald-500/60"></div>
 
               {/* Content */}
               <span className="relative z-10 flex items-center gap-3 group-hover:gap-5 transition-all duration-300">
@@ -591,7 +603,7 @@ const Home = () => {
                     className="relative w-6 h-6 group-hover:translate-y-[-4px] transition-transform duration-300"
                     style={{
                       animation: "colorShift 3s ease-in-out infinite",
-                      filter: "drop-shadow(0 0 6px rgba(0, 217, 255, 0.8))",
+                      filter: "drop-shadow(0 0 6px rgba(16, 185, 129, 0.8))",
                     }}
                     fill="currentColor"
                     viewBox="0 0 24 24"
@@ -603,17 +615,17 @@ const Home = () => {
                   <span
                     className="absolute w-1.5 h-1.5 rounded-full"
                     style={{
-                      background: "rgba(0, 217, 255, 0.9)",
+                      background: "rgba(16, 185, 129, 0.9)",
                       animation: "orbit 4s linear infinite",
                       top: "50%",
                       left: "50%",
-                      boxShadow: "0 0 6px rgba(0, 217, 255, 0.8)",
+                      boxShadow: "0 0 6px rgba(16, 185, 129, 0.8)",
                     }}
                   />
                   <span
                     className="absolute w-1 h-1 rounded-full"
                     style={{
-                      background: "rgba(0, 200, 255, 0.7)",
+                      background: "rgba(34, 197, 94, 0.7)",
                       animation: "orbit 4s linear infinite 1.33s",
                       top: "50%",
                       left: "50%",
@@ -622,7 +634,7 @@ const Home = () => {
                   <span
                     className="absolute w-1 h-1 rounded-full"
                     style={{
-                      background: "rgba(0, 150, 255, 0.5)",
+                      background: "rgba(20, 184, 166, 0.5)",
                       animation: "orbit 4s linear infinite 2.66s",
                       top: "50%",
                       left: "50%",
@@ -636,7 +648,7 @@ const Home = () => {
                   size={24}
                   className="group-hover:translate-x-3 group-hover:rotate-45 transition-all duration-300"
                   style={{
-                    filter: "drop-shadow(0 0 4px rgba(0, 217, 255, 0.7))",
+                    filter: "drop-shadow(0 0 4px rgba(16, 185, 129, 0.7))",
                   }}
                 />
               </span>
@@ -653,11 +665,11 @@ const Home = () => {
 
                 @keyframes colorShift {
                   0%, 100% {
-                    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+                    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.6));
                     opacity: 1;
                   }
                   50% {
-                    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.8));
+                    filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.8));
                     opacity: 0.95;
                   }
                 }
@@ -687,11 +699,11 @@ const Home = () => {
       </section>
 
       {/* Main Content Sections  */}
-      <div id="services" className="bg-slate-950">
+      <div id="services" className="bg-white">
         {/* Services Section  */}
-        <section className="py-24 relative overflow-hidden bg-black">
+        <section className="py-24 relative overflow-hidden bg-white">
           {/* Background overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
 
           <style>{`
             @keyframes cardFallLoop {
@@ -718,20 +730,20 @@ const Home = () => {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-20 animate-fadeInUp">
-              <div className="inline-block mb-4 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 backdrop-blur-md">
-                <span className="text-blue-300 font-semibold tracking-wider uppercase text-sm">
-                  Our Expertise
+              <div className="inline-block mb-6 px-5 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-300 backdrop-blur-md">
+                <span className="text-blue-700 font-semibold tracking-wider uppercase text-xs lg:text-sm">
+                  ⚡ Our Expertise
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900 tracking-tight leading-tight">
                 <AnimatedText text="Comprehensive " delay={0} />
-                <span className=" bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                <span className="bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700">
                   <AnimatedText text="Telecom Solutions" delay={150} />
                 </span>
               </h2>
-              <p className="text-xl text-blue-100/80 max-w-2xl mx-auto font-light">
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
                 <AnimatedText
-                  text="Empowering modern businesses with next-generation communication infrastructure"
+                  text="Empowering modern businesses with next-generation communication infrastructure. Choose from SMS, Voice, DID Numbers, and custom Software solutions."
                   delay={300}
                 />
               </p>
@@ -744,32 +756,26 @@ const Home = () => {
               {/* SMS Solutions Card */}
               <SplitCornerCard index={0} delay={0}>
                 <div
-                  className="group relative p-8 rounded-3xl cursor-pointer bg-blue-950/40 border border-blue-400/30 transition-all duration-500 hover:bg-blue-950/60 hover:-translate-y-2 overflow-hidden card-fall-1"
+                  className="group relative p-6 md:p-8 rounded-3xl cursor-pointer bg-blue-50 border border-blue-200 shadow-md hover:shadow-xl transition-all duration-500 hover:bg-blue-100 hover:-translate-y-2 overflow-hidden card-fall-1"
                   style={{
                     transformStyle: "preserve-3d",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.animationPlayState = "paused";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.animationPlayState = "running";
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-14 h-14 md:w-16 md:h-16 mb-5 md:mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-500">
                       <MessageSquare className="text-white" size={32} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">
                       SMS Solutions
                     </h3>
-                    <p className="text-blue-100/70 mb-6 leading-relaxed text-sm">
+                    <p className="text-gray-700 mb-5 md:mb-6 leading-relaxed text-sm">
                       Bulk SMS, A2P messaging, and SMS gateway APIs designed for
                       global reach and high deliverability.
                     </p>
                     <a
                       href="/services/sms"
-                      className="text-blue-400 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide"
+                      className="text-blue-600 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide hover:text-blue-800"
                     >
                       Learn More{" "}
                       <ArrowRight
@@ -782,34 +788,28 @@ const Home = () => {
               </SplitCornerCard>
 
               {/* Voice Services Card */}
-              <SplitCornerCard index={1} delay={100}>
+              <SplitCornerCard index={1} delay={50}>
                 <div
-                  className="group relative p-8 rounded-3xl cursor-pointer bg-blue-950/40 border border-blue-400/30 transition-all duration-500 hover:bg-blue-950/60 hover:-translate-y-2 overflow-hidden card-fall-2"
+                  className="group relative p-6 md:p-8 rounded-3xl cursor-pointer bg-purple-50 border border-purple-200 shadow-md hover:shadow-xl transition-all duration-500 hover:bg-purple-100 hover:-translate-y-2 overflow-hidden card-fall-2"
                   style={{
                     transformStyle: "preserve-3d",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.animationPlayState = "paused";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.animationPlayState = "running";
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-14 h-14 md:w-16 md:h-16 mb-5 md:mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform duration-500">
                       <Phone className="text-white" size={32} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-900 group-hover:text-purple-700 transition-colors">
                       Voice Services
                     </h3>
-                    <p className="text-blue-100/70 mb-6 leading-relaxed text-sm">
+                    <p className="text-gray-700 mb-5 md:mb-6 leading-relaxed text-sm">
                       Crystal clear Cloud PBX, IVR systems, call recording, and
                       robust voice APIs for your business.
                     </p>
                     <a
                       href="/services/voice"
-                      className="text-purple-400 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide"
+                      className="text-purple-600 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide hover:text-purple-800"
                     >
                       Learn More{" "}
                       <ArrowRight
@@ -822,34 +822,28 @@ const Home = () => {
               </SplitCornerCard>
 
               {/* DID Numbers Card */}
-              <SplitCornerCard index={2} delay={200}>
+              <SplitCornerCard index={2} delay={100}>
                 <div
-                  className="group relative p-8 rounded-3xl cursor-pointer bg-blue-950/40 border border-blue-400/30 transition-all duration-500 hover:bg-blue-950/60 hover:-translate-y-2 overflow-hidden card-fall-3"
+                  className="group relative p-6 md:p-8 rounded-3xl cursor-pointer bg-pink-50 border border-pink-200 shadow-md hover:shadow-xl transition-all duration-500 hover:bg-pink-100 hover:-translate-y-2 overflow-hidden card-fall-3"
                   style={{
                     transformStyle: "preserve-3d",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.animationPlayState = "paused";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.animationPlayState = "running";
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-14 h-14 md:w-16 md:h-16 mb-5 md:mb-6 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 transition-transform duration-500">
                       <Globe className="text-white" size={32} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-pink-300 transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-900 group-hover:text-pink-700 transition-colors">
                       DID Numbers
                     </h3>
-                    <p className="text-blue-100/70 mb-6 leading-relaxed text-sm">
+                    <p className="text-gray-700 mb-5 md:mb-6 leading-relaxed text-sm">
                       Instant access to local, mobile, and toll-free numbers in
                       over 100+ countries worldwide.
                     </p>
                     <a
                       href="/services/did"
-                      className="text-pink-400 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide"
+                      className="text-pink-600 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide hover:text-pink-800"
                     >
                       Learn More{" "}
                       <ArrowRight
@@ -862,34 +856,28 @@ const Home = () => {
               </SplitCornerCard>
 
               {/* Software Solutions Card */}
-              <SplitCornerCard index={3} delay={300}>
+              <SplitCornerCard index={3} delay={150}>
                 <div
-                  className="group relative p-8 rounded-3xl cursor-pointer bg-blue-950/40 border border-blue-400/30 transition-all duration-500 hover:bg-blue-950/60 hover:-translate-y-2 overflow-hidden card-fall-4"
+                  className="group relative p-6 md:p-8 rounded-3xl cursor-pointer bg-orange-50 border border-orange-200 shadow-md hover:shadow-xl transition-all duration-500 hover:bg-orange-100 hover:-translate-y-2 overflow-hidden card-fall-4"
                   style={{
                     transformStyle: "preserve-3d",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.animationPlayState = "paused";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.animationPlayState = "running";
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-14 h-14 md:w-16 md:h-16 mb-5 md:mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-500">
                       <Zap className="text-white" size={32} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-orange-300 transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-900 group-hover:text-orange-700 transition-colors">
                       Software Solutions
                     </h3>
-                    <p className="text-blue-100/70 mb-6 leading-relaxed text-sm">
+                    <p className="text-gray-700 mb-5 md:mb-6 leading-relaxed text-sm">
                       Custom telecom platforms, white-label solutions, and
                       enterprise-grade integrations.
                     </p>
                     <a
                       href="/services/software"
-                      className="text-orange-400 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide"
+                      className="text-orange-600 font-semibold flex items-center hover:gap-2 transition-all group/link text-sm uppercase tracking-wide hover:text-orange-800"
                     >
                       Learn More{" "}
                       <ArrowRight
@@ -905,9 +893,12 @@ const Home = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-24 relative overflow-hidden bg-black">
+        <section
+          className="py-24 relative overflow-hidden"
+          style={{ backgroundColor: "rgba(0, 167, 217, 0.05)" }}
+        >
           {/* Background overlay with gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
 
           {/* Animated background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -917,20 +908,20 @@ const Home = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20 animate-fadeInUp">
-              <div className="inline-block mb-4 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 backdrop-blur-md">
-                <span className="text-blue-300 font-semibold tracking-wider uppercase text-sm">
-                  Why Choose Cyvora
+              <div className="inline-block mb-6 px-5 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-300 backdrop-blur-md">
+                <span className="text-blue-700 font-semibold tracking-wider uppercase text-xs lg:text-sm">
+                  🛡️ Why Choose Cyvora
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900 tracking-tight leading-tight">
                 <AnimatedText text="Built for " delay={0} />
-                <span className="bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                <span className="bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700">
                   <AnimatedText text="Scale & Reliability" delay={100} />
                 </span>
               </h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto font-light leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
                 <AnimatedText
-                  text="Experience the difference with our enterprise-grade infrastructure designed for modern communication needs."
+                  text="Experience enterprise-grade infrastructure with 99.99% uptime, dedicated 24/7 support, and global reach across 190+ countries. Built for modern communication needs."
                   delay={200}
                 />
               </p>
@@ -939,7 +930,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
               {/* Feature 1 */}
               <ScatterCard index={0} delay={0}>
-                <div className="group relative p-8 rounded-3xl bg-blue-950/40 border border-blue-400/30 hover:bg-blue-950/60 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                <div className="group relative p-8 rounded-3xl bg-blue-50 border border-blue-200 shadow-md hover:shadow-xl hover:bg-blue-100 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div className="relative z-10">
@@ -947,27 +938,27 @@ const Home = () => {
                       <Shield className="text-white" size={32} />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
                       99.99% Uptime SLA
                     </h3>
 
-                    <p className="text-blue-100/80 leading-relaxed mb-6">
+                    <p className="text-gray-700 leading-relaxed mb-6">
                       Our geo-redundant infrastructure ensures your business
                       stays connected 24/7/365 with guaranteed reliability and
                       automatic failover.
                     </p>
 
                     <ul className="space-y-2">
-                      <li className="flex items-center text-sm text-blue-200">
-                        <CheckCircle size={16} className="mr-2 text-blue-400" />{" "}
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle size={16} className="mr-2 text-blue-500" />{" "}
                         Geo-redundant servers
                       </li>
-                      <li className="flex items-center text-sm text-blue-200">
-                        <CheckCircle size={16} className="mr-2 text-blue-400" />{" "}
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle size={16} className="mr-2 text-blue-500" />{" "}
                         Automatic failover
                       </li>
-                      <li className="flex items-center text-sm text-blue-200">
-                        <CheckCircle size={16} className="mr-2 text-blue-400" />{" "}
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle size={16} className="mr-2 text-blue-500" />{" "}
                         Real-time monitoring
                       </li>
                     </ul>
@@ -977,7 +968,7 @@ const Home = () => {
 
               {/* Feature 2 */}
               <ScatterCard index={1} delay={100}>
-                <div className="group relative p-8 rounded-3xl bg-blue-950/40 border border-blue-400/30 hover:bg-blue-950/60 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                <div className="group relative p-8 rounded-3xl bg-purple-50 border border-purple-200 shadow-md hover:shadow-xl hover:bg-purple-100 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div className="relative z-10">
@@ -985,35 +976,35 @@ const Home = () => {
                       <Users className="text-white" size={32} />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">
                       Dedicated Support
                     </h3>
 
-                    <p className="text-blue-100/80 leading-relaxed mb-6">
+                    <p className="text-gray-700 leading-relaxed mb-6">
                       Get access to our team of telecom experts available round
                       the clock to help you with integration, debugging, and
                       optimization.
                     </p>
 
                     <ul className="space-y-2">
-                      <li className="flex items-center text-sm text-blue-200">
+                      <li className="flex items-center text-sm text-gray-700">
                         <CheckCircle
                           size={16}
-                          className="mr-2 text-purple-400"
+                          className="mr-2 text-purple-500"
                         />{" "}
                         24/7 Technical support
                       </li>
-                      <li className="flex items-center text-sm text-blue-200">
+                      <li className="flex items-center text-sm text-gray-700">
                         <CheckCircle
                           size={16}
-                          className="mr-2 text-purple-400"
+                          className="mr-2 text-purple-500"
                         />{" "}
                         Dedicated account manager
                       </li>
-                      <li className="flex items-center text-sm text-blue-200">
+                      <li className="flex items-center text-sm text-gray-700">
                         <CheckCircle
                           size={16}
-                          className="mr-2 text-purple-400"
+                          className="mr-2 text-purple-500"
                         />{" "}
                         &lt; 15min response time
                       </li>
@@ -1024,7 +1015,7 @@ const Home = () => {
 
               {/* Feature 3 */}
               <ScatterCard index={2} delay={200}>
-                <div className="group relative p-8 rounded-3xl bg-blue-950/40 border border-blue-400/30 hover:bg-blue-950/60 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                <div className="group relative p-8 rounded-3xl bg-pink-50 border border-pink-200 shadow-md hover:shadow-xl hover:bg-pink-100 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div className="relative z-10">
@@ -1032,27 +1023,27 @@ const Home = () => {
                       <Globe className="text-white" size={32} />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-pink-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-pink-700 transition-colors">
                       Global Reach
                     </h3>
 
-                    <p className="text-blue-100/80 leading-relaxed mb-6">
+                    <p className="text-gray-700 leading-relaxed mb-6">
                       Connect with customers anywhere in the world through our
                       extensive network of direct operator connections in 190+
                       countries.
                     </p>
 
                     <ul className="space-y-2">
-                      <li className="flex items-center text-sm text-blue-200">
-                        <CheckCircle size={16} className="mr-2 text-pink-400" />{" "}
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle size={16} className="mr-2 text-pink-500" />{" "}
                         190+ Countries covered
                       </li>
-                      <li className="flex items-center text-sm text-blue-200">
-                        <CheckCircle size={16} className="mr-2 text-pink-400" />{" "}
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle size={16} className="mr-2 text-pink-500" />{" "}
                         Direct carrier routes
                       </li>
-                      <li className="flex items-center text-sm text-blue-200">
-                        <CheckCircle size={16} className="mr-2 text-pink-400" />{" "}
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle size={16} className="mr-2 text-pink-500" />{" "}
                         Local number availability
                       </li>
                     </ul>
@@ -1064,10 +1055,9 @@ const Home = () => {
         </section>
 
         {/* Get Started Section*/}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
-
+        <section
+          className="py-24 relative overflow-hidden"
+        >
           {/* Animated background blobs */}
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
@@ -1077,47 +1067,82 @@ const Home = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="animate-fadeInUp">
                 <div className="inline-block mb-4 px-4 py-1 rounded-full bg-green-500/10 border border-green-400/30 backdrop-blur-md">
-                  <span className="text-green-300 font-semibold tracking-wider uppercase text-sm">
+                  <span className="text-green-600 font-semibold tracking-wider uppercase text-sm">
                     Start Your Journey
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
                   <AnimatedText text="Ready to " delay={0} />
-                  <span className=" bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+                  <span className=" bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
                     <AnimatedText text="Scale Your Business?" delay={100} />
                   </span>
                 </h2>
-                <p className="text-xl text-blue-100/80 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                   <AnimatedText
-                    text="Join thousands of forward-thinking businesses using our telecom solutions to drive growth and customer engagement."
+                    text="Join thousands of forward-thinking businesses using our telecom solutions to drive growth and customer engagement. Our platform is designed to scale with your needs, providing reliability and performance you can trust."
                     delay={200}
                   />
                 </p>
-                <ul className="space-y-5 mb-10">
-                  <li className="group flex items-center text-lg text-blue-100 transition-transform duration-300 hover:translate-x-2">
-                    <div className="mr-4 p-1 rounded-full bg-green-500/20 text-green-400 transform group-hover:scale-110 transition-transform">
-                      <CheckCircle size={20} />
-                    </div>
-                    No credit card required
-                  </li>
-                  <li className="group flex items-center text-lg text-blue-100 transition-transform duration-300 hover:translate-x-2">
-                    <div className="mr-4 p-1 rounded-full bg-green-500/20 text-green-400 transform group-hover:scale-110 transition-transform">
-                      <CheckCircle size={20} />
-                    </div>
-                    14-day free trial
-                  </li>
-                  <li className="group flex items-center text-lg text-blue-100 transition-transform duration-300 hover:translate-x-2">
-                    <div className="mr-4 p-1 rounded-full bg-green-500/20 text-green-400 transform group-hover:scale-110 transition-transform">
-                      <CheckCircle size={20} />
-                    </div>
-                    Cancel anytime
-                  </li>
+
+                <ul className="space-y-3 mb-8">
+                  {[
+                    "Enterprise-grade security & compliance",
+                    "Global coverage in 190+ countries",
+                    "Seamless API integration",
+                    "24/7 dedicated support team",
+                  ].map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center gap-3 text-gray-700"
+                    >
+                      <CheckCircle className="text-green-500" size={20} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
+
+                <div className="grid grid-cols-2 gap-6 mb-10">
+                  <div className="p-4 bg-white/50 rounded-xl border border-blue-100 backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-blue-600 mb-1">
+                      10M+
+                    </div>
+                    <div className="text-gray-600 text-xs uppercase tracking-wider font-semibold">
+                      Daily Messages
+                    </div>
+                  </div>
+                  <div className="p-4 bg-white/50 rounded-xl border border-purple-100 backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-purple-600 mb-1">
+                      5,000+
+                    </div>
+                    <div className="text-gray-600 text-xs uppercase tracking-wider font-semibold">
+                      Active Customers
+                    </div>
+                  </div>
+                  <div className="p-4 bg-white/50 rounded-xl border border-green-100 backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-green-600 mb-1">
+                      99.99%
+                    </div>
+                    <div className="text-gray-600 text-xs uppercase tracking-wider font-semibold">
+                      Uptime SLA
+                    </div>
+                  </div>
+                  <div className="p-4 bg-white/50 rounded-xl border border-orange-100 backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-orange-600 mb-1">
+                      190+
+                    </div>
+                    <div className="text-gray-600 text-xs uppercase tracking-wider font-semibold">
+                      Countries Covered
+                    </div>
+                  </div>
+                </div>
+
                 <a
                   href="/free-trial"
-                  className="group inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-lg text-white bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-400 hover:to-blue-500 shadow-lg shadow-green-500/20 hover:shadow-green-500/40 transform hover:scale-105 transition-all duration-300"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-lg text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/30"
                 >
-                  <span className="flex items-center gap-2">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-500 transition-all duration-300 group-hover:scale-110"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <span className="relative flex items-center gap-2">
                     Start Your Free Trial
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -1127,56 +1152,13 @@ const Home = () => {
               <SlideInCard delay={300}>
                 <div className="relative animate-fadeInUp animation-delay-400">
                   <div className="absolute -inset-1 bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 rounded-[2rem] blur-lg opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                  <div className="relative bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-[1.8rem] p-8 shadow-2xl">
-                    <div className="bg-white/5 rounded-2xl p-8 border border-white/5">
-                      <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
-                        <Activity className="text-green-400" />
-                        Platform Impact
-                      </h3>
-                      <div className="space-y-6">
-                        <div className="group p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-blue-500/30 transition-all duration-300 transform hover:scale-[1.02]">
-                          <div className="flex justify-between items-end mb-2">
-                            <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
-                              10M+
-                            </div>
-                            <div className="text-green-400 text-sm font-mono flex items-center">
-                              +12% <span className="ml-1">↑</span>
-                            </div>
-                          </div>
-                          <div className="text-blue-200/70 text-sm font-medium uppercase tracking-wide">
-                            Messages Delivered Daily
-                          </div>
-                        </div>
-
-                        <div className="group p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-purple-500/30 transition-all duration-300 transform hover:scale-[1.02]">
-                          <div className="flex justify-between items-end mb-2">
-                            <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-200">
-                              5,000+
-                            </div>
-                            <div className="text-green-400 text-sm font-mono flex items-center">
-                              +8% <span className="ml-1">↑</span>
-                            </div>
-                          </div>
-                          <div className="text-blue-200/70 text-sm font-medium uppercase tracking-wide">
-                            Active Customers
-                          </div>
-                        </div>
-
-                        <div className="group p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-pink-500/30 transition-all duration-300 transform hover:scale-[1.02]">
-                          <div className="flex justify-between items-end mb-2">
-                            <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-pink-200">
-                              190+
-                            </div>
-                            <div className="text-blue-400 text-sm font-mono">
-                              Global
-                            </div>
-                          </div>
-                          <div className="text-blue-200/70 text-sm font-medium uppercase tracking-wide">
-                            Countries Covered
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="relative rounded-[1.8rem] overflow-hidden shadow-2xl group h-[500px]">
+                    <img
+                      src="/business.jpg"
+                      alt="Business Growth"
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                   </div>
                 </div>
               </SlideInCard>
@@ -1185,9 +1167,9 @@ const Home = () => {
         </section>
 
         {/* Trusted By Section */}
-        <section className="py-20 bg-slate-950 relative border-t border-white/5 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 animate-fadeInUp">
+        <section className="py-20 bg-black relative border-t border-white/10 overflow-hidden">
+          <div className="w-full">
+            <div className="text-center mb-12 animate-fadeInUp px-4">
               <p className="text-sm font-semibold text-blue-400 uppercase tracking-widest">
                 <AnimatedText text="Trusted by Industry Leaders" delay={0} />
               </p>
@@ -1199,23 +1181,44 @@ const Home = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center animate-fadeInUp animation-delay-200">
-              {["MTN", "Vodafone", "Airtel", "Zain", "Ooredoo", "Orange"].map(
-                (brand, index) => (
-                  <HorizontalScrollCard
+            <div className="relative w-full overflow-hidden">
+              <style>{`
+                @keyframes marquee {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                  animation: marquee 30s linear infinite;
+                }
+                .animate-marquee:hover {
+                  animation-play-state: paused;
+                }
+              `}</style>
+              <div
+                className="flex gap-12 animate-marquee w-max"
+                style={{
+                  maskImage:
+                    "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
+                  WebkitMaskImage:
+                    "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
+                }}
+              >
+                {[
+                  ...["MTN", "Vodafone", "Airtel", "Zain", "Ooredoo", "Orange"],
+                  ...["MTN", "Vodafone", "Airtel", "Zain", "Ooredoo", "Orange"],
+                  ...["MTN", "Vodafone", "Airtel", "Zain", "Ooredoo", "Orange"],
+                  ...["MTN", "Vodafone", "Airtel", "Zain", "Ooredoo", "Orange"],
+                ].map((brand, index) => (
+                  <div
                     key={index}
-                    index={index}
-                    delay={index * 80}
-                    total={6}
+                    className="w-48 h-24 flex-shrink-0 group p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
                   >
-                    <div className="group w-full p-6 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
-                      <div className="text-xl font-bold text-slate-500 group-hover:text-white transition-colors duration-300">
-                        {brand}
-                      </div>
+                    <div className="text-xl font-bold text-gray-400 group-hover:text-white transition-colors duration-300">
+                      {brand}
                     </div>
-                  </HorizontalScrollCard>
-                )
-              )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

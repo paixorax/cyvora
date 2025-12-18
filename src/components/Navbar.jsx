@@ -43,10 +43,45 @@ const Navbar = () => {
     <nav className="fixed w-full bg-slate-900 backdrop-blur-xl shadow-2xl border-b border-blue-500/30 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             <a
               href="/"
-              className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent hover:scale-105 transition-transform"
+              className="relative group"
+            >
+              <div className="relative h-16 w-16 flex items-center justify-center">
+                <svg
+                  className="absolute inset-0 animate-spin"
+                  style={{ animationDuration: "3s" }}
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="url(#gradient)"
+                    strokeWidth="2"
+                    strokeDasharray="10 5"
+                  />
+                  <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="50%" stopColor="#06b6d4" />
+                      <stop offset="100%" stopColor="#3b82f6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <img
+                  src="/logo.png"
+                  alt="Cyvora"
+                  className="h-14 w-14 object-contain filter brightness-0 invert group-hover:scale-110 transition-transform"
+                />
+              </div>
+            </a>
+            <a
+              href="/"
+              className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent hover:scale-105 transition-transform"
             >
               Cyvora
             </a>
