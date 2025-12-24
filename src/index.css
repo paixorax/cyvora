@@ -3,6 +3,32 @@
 @layer base {
   :root {
     scroll-behavior: smooth;
+    --navbar-bg: #2C2E30;
+    --text-off-white: #F4F4F4;
+    --accent-copper: #B36433;
+    --body-bg: #F4F4F4;
+    --heading-dark: #2C2E30;
+    --body-grey: #4A4A4A;
+    --footer-bg: #2C2E30;
+    --footer-text: #D9DBDD;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--body-bg);
+  }
+
+  body {
+    color: var(--body-grey);
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-dark);
   }
 
   /* Lenis smooth scroll styles */
@@ -26,10 +52,7 @@
     pointer-events: none;
   }
 
-  /* Smooth transitions */
-  * {
-    @apply transition-all duration-300;
-  }
+  /* Smooth transitions - removed global transition to prevent FOUC/flicker */
 }
 
 @layer components {

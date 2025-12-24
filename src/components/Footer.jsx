@@ -14,30 +14,18 @@ const Footer = () => {
   const [hoveredLink, setHoveredLink] = useState(null);
 
   return (
-    <footer className="relative bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 text-gray-800 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-        <div
-          className="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"
-          style={{ animationDelay: "2s" }}
-        ></div>
-        <div
-          className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
-          style={{ animationDelay: "4s" }}
-        ></div>
-      </div>
-
+    <footer className="relative bg-[var(--footer-bg)] text-[var(--footer-text)] overflow-hidden">
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
             <div className="lg:col-span-2 animate-fadeInUp">
               <div className="mb-6">
-                <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <h3 className="text-3xl font-bold mb-2 text-[var(--text-off-white)]">
                   Cyvora
                 </h3>
-                <p className="w-1 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></p>
+                <p className="w-10 h-1 bg-[var(--accent-copper)] rounded-full"></p>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed font-medium">
+              <p className="text-[var(--footer-text)]/80 mb-6 leading-relaxed font-medium">
                 Transforming telecom solutions with innovative technology and
                 unparalleled customer service. Your trusted partner in global
                 communications.
@@ -47,28 +35,28 @@ const Footer = () => {
                   {
                     icon: Facebook,
                     label: "Facebook",
-                    color: "hover:text-blue-600",
+                    color: "hover:text-[var(--accent-copper)]",
                   },
                   {
                     icon: Twitter,
                     label: "Twitter",
-                    color: "hover:text-blue-400",
+                    color: "hover:text-[var(--accent-copper)]",
                   },
                   {
                     icon: Linkedin,
                     label: "LinkedIn",
-                    color: "hover:text-blue-700",
+                    color: "hover:text-[var(--accent-copper)]",
                   },
                   {
                     icon: Instagram,
                     label: "Instagram",
-                    color: "hover:text-pink-600",
+                    color: "hover:text-[var(--accent-copper)]",
                   },
                 ].map((social, idx) => (
                   <a
                     key={idx}
                     href="#"
-                    className={`p-3 bg-white rounded-full shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-300 ${social.color}`}
+                    className={`p-3 bg-white/5 rounded-full shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-300 ${social.color}`}
                     aria-label={social.label}
                   >
                     <social.icon size={20} />
@@ -81,8 +69,8 @@ const Footer = () => {
               className="animate-fadeInUp"
               style={{ animationDelay: "100ms" }}
             >
-              <h4 className="text-lg font-bold mb-6 text-gray-800 flex items-center gap-2">
-                <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
+              <h4 className="text-lg font-bold mb-6 text-[var(--text-off-white)] flex items-center gap-2">
+                <span className="w-2 h-2 bg-[var(--accent-copper)] rounded-full"></span>
                 Services
               </h4>
               <ul className="space-y-3">
@@ -95,7 +83,7 @@ const Footer = () => {
                   <li key={idx}>
                     <a
                       href={item.path}
-                      className="text-gray-600 hover:text-blue-600 transition-all duration-300 flex items-center gap-1 group font-medium"
+                      className="text-[var(--footer-text)] hover:text-[var(--accent-copper)] transition-all duration-300 flex items-center gap-1 group font-medium"
                       onMouseEnter={() => setHoveredLink(`service-${idx}`)}
                       onMouseLeave={() => setHoveredLink(null)}
                     >
@@ -115,8 +103,8 @@ const Footer = () => {
               className="animate-fadeInUp"
               style={{ animationDelay: "200ms" }}
             >
-              <h4 className="text-lg font-bold mb-6 text-gray-800 flex items-center gap-2">
-                <span className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></span>
+              <h4 className="text-lg font-bold mb-6 text-[var(--text-off-white)] flex items-center gap-2">
+                <span className="w-2 h-2 bg-[var(--accent-copper)] rounded-full"></span>
                 Company
               </h4>
               <ul className="space-y-3">
@@ -129,7 +117,7 @@ const Footer = () => {
                   <li key={idx}>
                     <a
                       href={item.path}
-                      className="text-gray-600 hover:text-purple-600 transition-all duration-300 flex items-center gap-1 group font-medium"
+                      className="text-[var(--footer-text)] hover:text-[var(--accent-copper)] transition-all duration-300 flex items-center gap-1 group font-medium"
                       onMouseEnter={() => setHoveredLink(`company-${idx}`)}
                       onMouseLeave={() => setHoveredLink(null)}
                     >
@@ -149,8 +137,8 @@ const Footer = () => {
               className="animate-fadeInUp"
               style={{ animationDelay: "300ms" }}
             >
-              <h4 className="text-lg font-bold mb-6 text-gray-800 flex items-center gap-2">
-                <span className="w-2 h-2 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full"></span>
+              <h4 className="text-lg font-bold mb-6 text-[var(--text-off-white)] flex items-center gap-2">
+                <span className="w-2 h-2 bg-[var(--accent-copper)] rounded-full"></span>
                 Contact
               </h4>
               <ul className="space-y-4">
@@ -159,12 +147,12 @@ const Footer = () => {
                     href="mailto:info@cyvora.com"
                     className="flex items-start gap-3 group"
                   >
-                    <div className="p-2 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg group-hover:shadow-md transition-all">
-                      <Mail size={18} className="text-blue-600" />
+                    <div className="p-2 bg-white/5 rounded-lg group-hover:shadow-md transition-all">
+                      <Mail size={18} className="text-[var(--accent-copper)]" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-500">Email</p>
-                      <p className="text-gray-700 font-medium group-hover:text-blue-600 transition-colors">
+                      <p className="text-sm text-[var(--footer-text)]/60">Email</p>
+                      <p className="text-[var(--footer-text)] font-medium group-hover:text-[var(--accent-copper)] transition-colors">
                         info@cyvora.com
                       </p>
                     </div>
@@ -175,12 +163,12 @@ const Footer = () => {
                     href="tel:+15551234567"
                     className="flex items-start gap-3 group"
                   >
-                    <div className="p-2 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg group-hover:shadow-md transition-all">
-                      <Phone size={18} className="text-purple-600" />
+                    <div className="p-2 bg-white/5 rounded-lg group-hover:shadow-md transition-all">
+                      <Phone size={18} className="text-[var(--accent-copper)]" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-500">Phone</p>
-                      <p className="text-gray-700 font-medium group-hover:text-purple-600 transition-colors">
+                      <p className="text-sm text-[var(--footer-text)]/60">Phone</p>
+                      <p className="text-[var(--footer-text)] font-medium group-hover:text-[var(--accent-copper)] transition-colors">
                         +1 (555) 123-4567
                       </p>
                     </div>
@@ -188,12 +176,12 @@ const Footer = () => {
                 </li>
                 <li>
                   <div className="flex items-start gap-3">
-                    <div className="p-2 bg-gradient-to-br from-pink-100 to-pink-50 rounded-lg">
-                      <MapPin size={18} className="text-pink-600" />
+                    <div className="p-2 bg-white/5 rounded-lg">
+                      <MapPin size={18} className="text-[var(--accent-copper)]" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-500">Location</p>
-                      <p className="text-gray-700 font-medium">
+                      <p className="text-sm text-[var(--footer-text)]/60">Location</p>
+                      <p className="text-[var(--footer-text)] font-medium">
                         123 Tech Street,
                         <br />
                         Silicon Valley
@@ -205,9 +193,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-gradient-to-r from-blue-200 via-purple-200 to-pink-200 pt-8">
+          <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-600 font-medium mb-4 md:mb-0 animate-fadeInUp">
+              <p className="text-[var(--footer-text)] font-medium mb-4 md:mb-0 animate-fadeInUp">
                 &copy; 2024 Cyvora. All rights reserved.
               </p>
               <div
@@ -216,19 +204,19 @@ const Footer = () => {
               >
                 <a
                   href="#"
-                  className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
+                  className="text-sm text-[var(--footer-text)] hover:text-[var(--accent-copper)] transition-colors font-medium"
                 >
                   Privacy Policy
                 </a>
                 <a
                   href="#"
-                  className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
+                  className="text-sm text-[var(--footer-text)] hover:text-[var(--accent-copper)] transition-colors font-medium"
                 >
                   Terms of Service
                 </a>
                 <a
                   href="#"
-                  className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
+                  className="text-sm text-[var(--footer-text)] hover:text-[var(--accent-copper)] transition-colors font-medium"
                 >
                   Cookie Policy
                 </a>
