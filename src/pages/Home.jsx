@@ -843,20 +843,24 @@ const Home = () => {
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--accent-copper)]/5 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="animate-fadeInUp">
                 <div className="inline-block mb-4 px-4 py-1 rounded-full bg-[var(--accent-copper)]/10 border border-[var(--accent-copper)]/20 shadow-sm backdrop-blur-md">
                   <span className="text-[var(--accent-copper)] font-semibold tracking-wider uppercase text-sm">
                     Start Your Journey
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--heading-dark)] leading-tight">
-                  <AnimatedText text="Ready to " delay={0} />
-                  <span className="text-[var(--accent-copper)]">
-                    <AnimatedText text="Scale Your Business?" delay={100} />
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[var(--heading-dark)] leading-tight">
+                  <span className="block">
+                    <AnimatedText text="Ready to Scale Your" delay={0} />
+                  </span>
+
+                  <span className="block text-[var(--accent-copper)]">
+                    <AnimatedText text=" Business?" delay={100} />
                   </span>
                 </h2>
-                <p className="text-xl text-[var(--body-grey)] mb-8 leading-relaxed">
+
+                <p className="text-lg md:text-xl text-[var(--body-grey)] mb-8 leading-relaxed">
                   <AnimatedText
                     text="Join thousands of forward-thinking businesses using our telecom solutions to drive growth and customer engagement. Our platform is designed to scale with your needs, providing reliability and performance you can trust."
                     delay={200}
@@ -875,7 +879,7 @@ const Home = () => {
                       className="flex items-center gap-3 text-[var(--body-grey)]"
                     >
                       <CheckCircle
-                        className="text-[var(--accent-copper)]"
+                        className="text-[var(--accent-copper)] flex-shrink-0"
                         size={20}
                       />
                       <span>{item}</span>
@@ -883,34 +887,34 @@ const Home = () => {
                   ))}
                 </ul>
 
-                <div className="grid grid-cols-2 gap-6 mb-10">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
                   <div className="p-4 bg-white rounded-xl border border-black/5 shadow-sm">
-                    <div className="text-3xl font-bold text-[var(--accent-copper)] mb-1">
-                      10M+
+                    <div className="text-2xl sm:text-3xl font-bold text-[var(--accent-copper)] mb-1">
+                      100K+
                     </div>
                     <div className="text-[var(--body-grey)] text-xs uppercase tracking-wider font-semibold">
                       Daily Messages
                     </div>
                   </div>
                   <div className="p-4 bg-white rounded-xl border border-black/5 shadow-sm">
-                    <div className="text-3xl font-bold text-[var(--accent-copper)] mb-1">
-                      5,000+
+                    <div className="text-2xl sm:text-3xl font-bold text-[var(--accent-copper)] mb-1">
+                      1K+
                     </div>
                     <div className="text-[var(--body-grey)] text-xs uppercase tracking-wider font-semibold">
                       Active Customers
                     </div>
                   </div>
                   <div className="p-4 bg-white rounded-xl border border-black/5 shadow-sm">
-                    <div className="text-3xl font-bold text-[var(--accent-copper)] mb-1">
-                      99.99%
+                    <div className="text-2xl sm:text-3xl font-bold text-[var(--accent-copper)] mb-1">
+                      99.9%
                     </div>
                     <div className="text-[var(--body-grey)] text-xs uppercase tracking-wider font-semibold">
                       Uptime SLA
                     </div>
                   </div>
                   <div className="p-4 bg-white rounded-xl border border-black/5 shadow-sm">
-                    <div className="text-3xl font-bold text-[var(--accent-copper)] mb-1">
-                      190+
+                    <div className="text-2xl sm:text-3xl font-bold text-[var(--accent-copper)] mb-1">
+                      50+
                     </div>
                     <div className="text-[var(--body-grey)] text-xs uppercase tracking-wider font-semibold">
                       Countries Covered
@@ -920,13 +924,13 @@ const Home = () => {
 
                 <a
                   href="/free-trial"
-                  className="group relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-lg text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--accent-copper)]/30"
+                  className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--accent-copper)]/30"
                 >
                   <div className="absolute inset-0 bg-[var(--accent-copper)] transition-all duration-300 group-hover:scale-110"></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   <span className="relative flex items-center gap-2">
                     Start Your Free Trial
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </a>
               </div>
@@ -934,7 +938,7 @@ const Home = () => {
               <SlideInCard delay={300}>
                 <div className="relative animate-fadeInUp animation-delay-400">
                   <div className="absolute -inset-1 bg-gradient-to-br from-[var(--accent-copper)]/40 via-[var(--accent-copper)]/60 to-[var(--accent-copper)]/80 rounded-[2rem] blur-lg opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                  <div className="relative rounded-[1.8rem] overflow-hidden shadow-2xl group h-[500px]">
+                  <div className="relative rounded-[1.8rem] overflow-hidden shadow-2xl group h-[400px] md:h-[500px]">
                     <img
                       src="/business.jpg"
                       alt="Business Growth"
