@@ -58,7 +58,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             <a
               href="/"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-medium group relative hover:text-[var(--accent-copper)] transition-all"
+              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-semibold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
             >
               Home
               <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -71,7 +71,7 @@ const Navbar = () => {
             >
               <button
                 onClick={() => toggleDropdown("services")}
-                className={`flex items-center px-4 py-2 rounded-lg font-medium transition-all group relative ${
+                className={`flex items-center px-4 py-2 rounded-lg font-bold text-lg lg:text-xl transition-all group relative ${
                   activeDropdown === "services"
                     ? "text-[var(--accent-copper)] bg-white/5"
                     : "text-[var(--text-off-white)] hover:text-[var(--accent-copper)] hover:bg-white/5"
@@ -79,7 +79,7 @@ const Navbar = () => {
               >
                 Services
                 <ChevronDown
-                  className={`ml-1 w-4 h-4 transition-transform duration-300 ${
+                  className={`ml-1 w-5 h-5 transition-transform duration-300 ${
                     activeDropdown === "services" ? "rotate-180" : ""
                   }`}
                 />
@@ -92,12 +92,12 @@ const Navbar = () => {
                 ></span>
               </button>
               {activeDropdown === "services" && (
-                <div className="absolute top-full left-0 mt-1 w-64 bg-[var(--navbar-bg)] border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
+                <div className="absolute top-full left-0 mt-1 w-72 bg-[var(--navbar-bg)] border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
                   {services.map((service, idx) => (
                     <a
                       key={service.path}
                       href={service.path}
-                      className="block px-5 py-3 text-[var(--text-off-white)] font-medium transition-all relative group/item hover:pl-8 border-l-3 border-transparent hover:border-[var(--accent-copper)] hover:text-[var(--accent-copper)]"
+                      className="block px-6 py-4 text-[var(--text-off-white)] font-bold text-lg transition-all relative group/item hover:pl-10 border-l-4 border-transparent hover:border-[var(--accent-copper)] hover:text-[var(--accent-copper)]"
                       style={{
                         animation: `slideIn 0.3s ease-out ${idx * 50}ms`,
                       }}
@@ -114,7 +114,7 @@ const Navbar = () => {
 
             <a
               href="/pricing"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-medium group relative hover:text-[var(--accent-copper)] transition-all"
+              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
             >
               Pricing
               <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -127,7 +127,7 @@ const Navbar = () => {
             >
               <button
                 onClick={() => toggleDropdown("resources")}
-                className={`flex items-center px-4 py-2 rounded-lg font-medium transition-all group relative ${
+                className={`flex items-center px-4 py-2 rounded-lg font-bold text-lg lg:text-xl transition-all group relative ${
                   activeDropdown === "resources"
                     ? "text-[var(--accent-copper)] bg-white/5"
                     : "text-[var(--text-off-white)] hover:text-[var(--accent-copper)] hover:bg-white/5"
@@ -135,7 +135,7 @@ const Navbar = () => {
               >
                 Resources
                 <ChevronDown
-                  className={`ml-1 w-4 h-4 transition-transform duration-300 ${
+                  className={`ml-1 w-5 h-5 transition-transform duration-300 ${
                     activeDropdown === "resources" ? "rotate-180" : ""
                   }`}
                 />
@@ -148,12 +148,12 @@ const Navbar = () => {
                 ></span>
               </button>
               {activeDropdown === "resources" && (
-                <div className="absolute top-full left-0 mt-1 w-64 bg-[var(--navbar-bg)] border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
+                <div className="absolute top-full left-0 mt-1 w-72 bg-[var(--navbar-bg)] border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
                   {resources.map((resource, idx) => (
                     <a
                       key={resource.path}
                       href={resource.path}
-                      className="block px-5 py-3 text-[var(--text-off-white)] font-medium transition-all relative group/item hover:pl-8 border-l-3 border-transparent hover:border-[var(--accent-copper)] hover:text-[var(--accent-copper)]"
+                      className="block px-6 py-4 text-[var(--text-off-white)] font-bold text-lg transition-all relative group/item hover:pl-10 border-l-4 border-transparent hover:border-[var(--accent-copper)] hover:text-[var(--accent-copper)]"
                       style={{
                         animation: `slideIn 0.3s ease-out ${idx * 50}ms`,
                       }}
@@ -170,7 +170,7 @@ const Navbar = () => {
 
             <a
               href="/blog"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-medium group relative hover:text-[var(--accent-copper)] transition-all"
+              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
             >
               Blog
               <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -178,7 +178,7 @@ const Navbar = () => {
 
             <a
               href="/about"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-medium group relative hover:text-[var(--accent-copper)] transition-all"
+              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
             >
               About
               <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -186,7 +186,7 @@ const Navbar = () => {
 
             <a
               href="/contact"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-medium group relative hover:text-[var(--accent-copper)] transition-all"
+              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
             >
               Contact
               <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>

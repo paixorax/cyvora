@@ -8,6 +8,7 @@ import {
   ArrowRight,
   CheckCircle,
   Activity,
+  ArrowRightCircle,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -497,11 +498,18 @@ const Home = () => {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-20 animate-fadeInUp">
-              <div className="inline-block mb-6 px-5 py-2 rounded-full bg-white border border-[var(--accent-copper)]/20 shadow-sm backdrop-blur-md">
-                <span className="text-[var(--accent-copper)] font-semibold tracking-wider uppercase text-xs lg:text-sm">
-                  ⚡ Our Expertise
+              <div
+                className="inline-block mb-6 px-5 py-2 rounded-full shadow-sm backdrop-blur-md"
+                style={{ backgroundColor: "#B36433" }}
+              >
+                <span className="flex items-center gap-2 text-white font-semibold tracking-wider uppercase text-xs lg:text-sm">
+                  <span className="drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]">
+                    ⚡
+                  </span>
+                  Our Expertise
                 </span>
               </div>
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--heading-dark)] tracking-tight leading-tight">
                 <AnimatedText text="Comprehensive " delay={0} />
                 <span className="text-[var(--accent-copper)]">
@@ -606,7 +614,7 @@ const Home = () => {
                     </h3>
                     <p className="text-[var(--body-grey)] mb-5 md:mb-6 leading-relaxed text-sm">
                       Instant access to local, mobile, and toll-free numbers in
-                      over 100+ countries worldwide.
+                      over 40+ countries worldwide seamless connectivity.
                     </p>
                     <a
                       href="/services/did"
@@ -660,30 +668,30 @@ const Home = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-24 relative overflow-hidden bg-[var(--body-bg)]">
+        <section className="py-24 relative overflow-hidden bg-[var(--accent-copper)]">
           {/* Background overlay with gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
 
           {/* Animated background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--accent-copper)]/5 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--accent-copper)]/5 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20 animate-fadeInUp">
-              <div className="inline-block mb-6 px-5 py-2 rounded-full bg-white border border-[var(--accent-copper)]/20 shadow-sm backdrop-blur-md">
-                <span className="text-[var(--accent-copper)] font-semibold tracking-wider uppercase text-xs lg:text-sm">
+              <div className="inline-block mb-6 px-5 py-2 rounded-full bg-white/10 border border-white/20 shadow-sm backdrop-blur-md">
+                <span className="text-white font-semibold tracking-wider uppercase text-xs lg:text-sm">
                   🛡️ Why Choose Cyvora
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--heading-dark)] tracking-tight leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tight leading-tight">
                 <AnimatedText text="Built for " delay={0} />
-                <span className="text-[var(--accent-copper)]">
+                <span className="text-white/90">
                   <AnimatedText text="Scale & Reliability" delay={100} />
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-[var(--body-grey)] max-w-3xl mx-auto font-light leading-relaxed">
+              <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light leading-relaxed">
                 <AnimatedText
                   text="Experience enterprise-grade infrastructure with 99.99% uptime, dedicated 24/7 support, and global reach across 190+ countries. Built for modern communication needs."
                   delay={200}
@@ -812,7 +820,7 @@ const Home = () => {
                           size={16}
                           className="mr-2 text-[var(--accent-copper)]"
                         />{" "}
-                        190+ Countries covered
+                        40+ Countries covered
                       </li>
                       <li className="flex items-center text-sm text-[var(--body-grey)]">
                         <CheckCircle
@@ -845,11 +853,16 @@ const Home = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="animate-fadeInUp">
-                <div className="inline-block mb-4 px-4 py-1 rounded-full bg-[var(--accent-copper)]/10 border border-[var(--accent-copper)]/20 shadow-sm backdrop-blur-md">
-                  <span className="text-[var(--accent-copper)] font-semibold tracking-wider uppercase text-sm">
+                <div
+                  className="inline-flex items-center mb-6 px-5 py-2 rounded-full shadow-sm backdrop-blur-md"
+                  style={{ backgroundColor: "#B36433" }}
+                >
+                  <ArrowRightCircle className="mr-2 w-4 h-4 text-white" />
+                  <span className="text-white font-semibold tracking-wider uppercase text-sm">
                     Start Your Journey
                   </span>
                 </div>
+
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[var(--heading-dark)] leading-tight">
                   <span className="block">
                     <AnimatedText text="Ready to Scale Your" delay={0} />

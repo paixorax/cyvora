@@ -20,10 +20,14 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
             <div className="lg:col-span-2 animate-fadeInUp">
               <div className="mb-6">
-                <h3 className="text-3xl font-bold mb-2 text-[var(--text-off-white)]">
-                  Cyvora
-                </h3>
-                <p className="w-10 h-1 bg-[var(--accent-copper)] rounded-full"></p>
+                <a href="/" className="inline-block">
+                  <img
+                    src="/logo.png"
+                    alt="Cyvora"
+                    className="h-20 w-auto object-contain hover:scale-105 transition-transform"
+                  />
+                </a>
+                <p className="w-10 h-1 bg-[var(--accent-copper)] rounded-full mt-2"></p>
               </div>
               <p className="text-[var(--footer-text)]/80 mb-6 leading-relaxed font-medium">
                 Transforming telecom solutions with innovative technology and
