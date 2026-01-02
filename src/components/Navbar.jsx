@@ -48,7 +48,7 @@ const Navbar = () => {
             <Link to="/" className="relative group" onClick={handleLinkClick}>
               <div className="relative flex items-center justify-center bg-white rounded-full w-14 h-14 lg:w-18 lg:h-18 shadow-xl shrink-0">
                 <img
-                  src="/logo.png"
+                  src="/logo1.png"
                   alt="Cyvora"
                   className="h-14 w-14 lg:h-18 lg:w-18 object-contain group-hover:scale-105 transition-transform p-1"
                 />
