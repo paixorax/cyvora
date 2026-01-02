@@ -1,90 +1,209 @@
-import React from "react";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ComingSoon = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-[#030712] text-white p-6 overflow-hidden font-sans">
-      {/* --- RUNNING DOG ANIMATION (Background Layer) --- */}
-      <div className="absolute w-full top-1/3 pointer-events-none opacity-40">
-        <marquee scrollamount="18" direction="right">
-          <div className="flex flex-col items-center">
-            {/* Professional Animated Dog GIF */}
-            <img
-              src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2ZicW9ueXN6Znd6Znd6Znd6Znd6Znd6Znd6Znd6Znd6Znd6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKMGpx4Z6Yv8Zhe/giphy.gif"
-              alt="Running Dog"
-              className="w-32 h-32 md:w-48 md:h-48"
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex flex-col items-center justify-center p-4">
+      {/* Animated Dog Illustration */}
+      <div className="relative w-64 h-64 mb-8">
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          {/* Body */}
+          <ellipse cx="100" cy="120" rx="50" ry="40" fill="#D2691E" />
+
+          {/* Chest */}
+          <ellipse cx="100" cy="130" rx="35" ry="25" fill="#F4A460" />
+
+          {/* Head */}
+          <circle cx="100" cy="80" r="40" fill="#D2691E" />
+
+          {/* Snout */}
+          <ellipse cx="100" cy="95" rx="25" ry="20" fill="#F4A460" />
+
+          {/* Nose */}
+          <ellipse cx="100" cy="100" rx="8" ry="6" fill="#000" />
+
+          {/* Eyes */}
+          <circle cx="85" cy="75" r="6" fill="#000" />
+          <circle cx="115" cy="75" r="6" fill="#000" />
+          <circle cx="87" cy="73" r="2" fill="#fff" />
+          <circle cx="117" cy="73" r="2" fill="#fff" />
+
+          {/* Eyebrows */}
+          <path
+            d="M 80 68 Q 85 65 90 68"
+            stroke="#000"
+            strokeWidth="2"
+            fill="none"
+          />
+          <path
+            d="M 110 68 Q 115 65 120 68"
+            stroke="#000"
+            strokeWidth="2"
+            fill="none"
+          />
+
+          {/* Ears */}
+          <ellipse
+            cx="70"
+            cy="70"
+            rx="15"
+            ry="25"
+            fill="#A0522D"
+            transform="rotate(-30 70 70)"
+          />
+          <ellipse
+            cx="130"
+            cy="70"
+            rx="15"
+            ry="25"
+            fill="#A0522D"
+            transform="rotate(30 130 70)"
+          />
+
+          {/* Mouth */}
+          <path
+            d="M 100 102 Q 95 108 90 106"
+            stroke="#000"
+            strokeWidth="2"
+            fill="none"
+          />
+          <path
+            d="M 100 102 Q 105 108 110 106"
+            stroke="#000"
+            strokeWidth="2"
+            fill="none"
+          />
+
+          {/* Tongue */}
+          <ellipse cx="100" cy="112" rx="8" ry="5" fill="#FF69B4" />
+
+          {/* Paws */}
+          <ellipse cx="80" cy="155" rx="12" ry="18" fill="#A0522D" />
+          <ellipse cx="120" cy="155" rx="12" ry="18" fill="#A0522D" />
+
+          {/* Back Paws */}
+          <ellipse cx="70" cy="150" rx="10" ry="15" fill="#8B4513" />
+          <ellipse cx="130" cy="150" rx="10" ry="15" fill="#8B4513" />
+
+          {/* Tail */}
+          <path
+            d="M 145 115 Q 165 110 170 95"
+            stroke="#D2691E"
+            strokeWidth="15"
+            fill="none"
+            strokeLinecap="round"
+          />
+
+          {/* Fur details */}
+          <path d="M 60 85 L 55 82" stroke="#A0522D" strokeWidth="2" />
+          <path d="M 62 92 L 57 93" stroke="#A0522D" strokeWidth="2" />
+          <path d="M 140 85 L 145 82" stroke="#A0522D" strokeWidth="2" />
+          <path d="M 138 92 L 143 93" stroke="#A0522D" strokeWidth="2" />
+
+          {/* Fur texture */}
+          <circle cx="75" cy="120" r="3" fill="#A0522D" opacity="0.3" />
+          <circle cx="125" cy="120" r="3" fill="#A0522D" opacity="0.3" />
+          <circle cx="90" cy="130" r="3" fill="#A0522D" opacity="0.3" />
+          <circle cx="110" cy="130" r="3" fill="#A0522D" opacity="0.3" />
+
+          {/* Waving Paw */}
+          <g className="animate-bounce origin-center">
+            <ellipse
+              cx="50"
+              cy="100"
+              rx="12"
+              ry="18"
+              fill="#D2691E"
+              transform="rotate(-45 50 100)"
             />
-          </div>
-        </marquee>
+            <circle cx="45" cy="90" r="4" fill="#A0522D" />
+            <circle cx="50" cy="88" r="4" fill="#A0522D" />
+            <circle cx="55" cy="90" r="4" fill="#A0522D" />
+          </g>
+        </svg>
       </div>
 
-      {/* --- MAIN CONTENT --- */}
-      <div className="relative z-10 text-center max-w-4xl">
-        {/* Status Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-8 animate-pulse">
-          <span className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></span>
-          System Maintenance
+      {/* Coming Soon Text */}
+      <h1 className="text-4xl md:text-6xl font-bold text-(--heading-dark) mb-2 text-center">
+        Coming Soon
+      </h1>
+
+      <p className="text-lg text-(--body-grey) text-center max-w-md mb-6">
+        We're working hard to bring you something amazing. Our social media
+        presence is being carefully crafted to better serve you.
+      </p>
+
+      {/* CTA Button */}
+      <Link
+        to="/"
+        className="flex items-center gap-2 px-8 py-4 bg-(--accent-copper) text-white rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+      >
+        <ArrowLeft size={20} />
+        Back to Home
+      </Link>
+
+      {/* Timeline Steps */}
+      <style>
+        {`
+          @keyframes rotate {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          .rotating-border {
+            animation: rotate 3s linear infinite;
+          }
+        `}
+      </style>
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full px-4">
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-2xl border border-gray-100">
+          <div className="relative w-16 h-16 mx-auto mb-3">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 via-red-400 to-orange-400 rotating-border"></div>
+            <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center">
+              <span className="text-xl font-bold bg-gradient-to-br from-orange-400 to-(--accent-copper) bg-clip-text text-transparent">
+                01
+              </span>
+            </div>
+          </div>
+          <h3 className="text-lg font-bold mb-2 text-gray-800">Strategy</h3>
+          <p className="text-(--body-grey) text-xs leading-relaxed">
+            Defining our digital footprint and planning the perfect approach
+          </p>
         </div>
 
-        {/* The Main Message */}
-        <h1 className="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
-          We are under <span className="text-blue-500 italic">updation</span>{" "}
-          <br />& will be{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
-            back soon!
-          </span>
-        </h1>
-
-        <p className="text-gray-400 text-lg md:text-xl mb-12 font-light">
-          We're upgrading our servers to give you a faster experience with{" "}
-          <br className="hidden md:block" />
-          SMS Solutions, DID Numbers, and Voice Features.
-        </p>
-
-        {/* --- MINI FEATURE GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <span className="text-2xl mb-2 block">💬</span>
-            <h3 className="font-semibold text-gray-200">SMS Solution</h3>
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-2xl border border-gray-100">
+          <div className="relative w-16 h-16 mx-auto mb-3">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 via-red-400 to-orange-400 rotating-border"></div>
+            <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center">
+              <span className="text-xl font-bold bg-gradient-to-br from-orange-400 to-(--accent-copper) bg-clip-text text-transparent">
+                02
+              </span>
+            </div>
           </div>
-          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <span className="text-2xl mb-2 block">📞</span>
-            <h3 className="font-semibold text-gray-200">DID Number</h3>
-          </div>
-          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <span className="text-2xl mb-2 block">🎙️</span>
-            <h3 className="font-semibold text-gray-200">Voice Features</h3>
-          </div>
+          <h3 className="text-lg font-bold mb-2 text-gray-800">Design</h3>
+          <p className="text-(--body-grey) text-xs leading-relaxed">
+            Crafting visual excellence that captures attention
+          </p>
         </div>
 
-        {/* --- PROGRESS BAR --- */}
-        <div className="mt-16 group">
-          <div className="text-xs text-gray-500 mb-3 tracking-[0.4em] uppercase font-bold">
-            Updaging Infrastructure
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-2xl border border-gray-100">
+          <div className="relative w-16 h-16 mx-auto mb-3">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 via-red-400 to-orange-400 rotating-border"></div>
+            <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center">
+              <span className="text-xl font-bold bg-gradient-to-br from-orange-400 to-(--accent-copper) bg-clip-text text-transparent">
+                03
+              </span>
+            </div>
           </div>
-          <div className="w-full max-w-md mx-auto h-1 bg-gray-900 rounded-full overflow-hidden">
-            <div className="h-full bg-blue-600 w-3/4 shadow-[0_0_15px_rgba(37,99,235,0.5)] animate-progress-flow"></div>
-          </div>
+          <h3 className="text-lg font-bold mb-2 text-gray-800">Launch</h3>
+          <p className="text-(--body-grey) text-xs leading-relaxed">
+            Going live very soon with amazing content
+          </p>
         </div>
       </div>
-
-      {/* Background Decorative Elements */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600/5 blur-[100px] rounded-full"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-indigo-600/5 blur-[100px] rounded-full"></div>
-
-      {/* Custom Keyframes */}
-      <style jsx>{`
-        @keyframes progress-flow {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        .animate-progress-flow {
-          animation: progress-flow 3s infinite ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

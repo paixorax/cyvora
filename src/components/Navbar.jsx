@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,11 +14,11 @@ const Navbar = () => {
     { name: "Software Solutions", path: "/services/software" },
   ];
 
-  const resources = [
-    { name: "Documentation", path: "/docs" },
-    { name: "API Reference", path: "/api" },
-    { name: "Case Studies", path: "/case-studies" },
-  ];
+  // const resources = [
+  //   { name: "Documentation", path: "/docs" },
+  //   { name: "API Reference", path: "/api" },
+  //   { name: "Case Studies", path: "/case-studies" },
+  // ];
 
   const toggleDropdown = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? "" : dropdown);
@@ -40,30 +41,32 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-[var(--navbar-bg)] backdrop-blur-xl shadow-2xl border-b border-white/10 z-50">
+    <nav className="fixed w-full bg-(--navbar-bg) backdrop-blur-xl shadow-2xl border-b border-white/10 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center gap-3">
-            <a href="/" className="relative group">
-              <div className="relative flex items-center justify-center">
+            <Link to="/" className="relative group" onClick={handleLinkClick}>
+              <div className="relative flex items-center justify-center bg-white rounded-full w-14 h-14 lg:w-18 lg:h-18 shadow-xl shrink-0">
                 <img
                   src="/logo.png"
                   alt="Cyvora"
-                  className="h-24 w-auto object-contain group-hover:scale-105 transition-transform"
+                  className="h-14 w-14 lg:h-18 lg:w-18 object-contain group-hover:scale-105 transition-transform p-1"
                 />
               </div>
-            </a>
+            </Link>
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
-            <a
-              href="/"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-semibold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
+            <Link
+              to="/"
+              className="text-(--text-off-white) px-4 py-2 rounded-lg font-semibold text-lg lg:text-xl group relative hover:text-(--accent-copper) transition-all"
             >
               Home
-              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
+              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-(--accent-copper) transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
 
+            {/* Services Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => handleMouseEnter("services")}
@@ -73,8 +76,8 @@ const Navbar = () => {
                 onClick={() => toggleDropdown("services")}
                 className={`flex items-center px-4 py-2 rounded-lg font-bold text-lg lg:text-xl transition-all group relative ${
                   activeDropdown === "services"
-                    ? "text-[var(--accent-copper)] bg-white/5"
-                    : "text-[var(--text-off-white)] hover:text-[var(--accent-copper)] hover:bg-white/5"
+                    ? "text-(--accent-copper) bg-white/5"
+                    : "text-(--text-off-white) hover:text-(--accent-copper) hover:bg-white/5"
                 }`}
               >
                 Services
@@ -84,7 +87,7 @@ const Navbar = () => {
                   }`}
                 />
                 <span
-                  className={`absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform transition-transform duration-300 origin-left ${
+                  className={`absolute bottom-1 left-4 right-4 h-0.5 bg-(--accent-copper) transform transition-transform duration-300 origin-left ${
                     activeDropdown === "services"
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
@@ -92,34 +95,36 @@ const Navbar = () => {
                 ></span>
               </button>
               {activeDropdown === "services" && (
-                <div className="absolute top-full left-0 mt-1 w-72 bg-[var(--navbar-bg)] border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
+                <div className="absolute top-full left-0 mt-1 w-72 bg-(--navbar-bg) border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
                   {services.map((service, idx) => (
-                    <a
+                    <Link
                       key={service.path}
-                      href={service.path}
-                      className="block px-6 py-4 text-[var(--text-off-white)] font-bold text-lg transition-all relative group/item hover:pl-10 border-l-4 border-transparent hover:border-[var(--accent-copper)] hover:text-[var(--accent-copper)]"
+                      to={service.path}
+                      onClick={handleLinkClick}
+                      className="block px-6 py-4 text-(--text-off-white) font-bold text-lg transition-all relative group/item hover:pl-10 border-l-4 border-transparent hover:border-(--accent-copper) hover:text-(--accent-copper)"
                       style={{
                         animation: `slideIn 0.3s ease-out ${idx * 50}ms`,
                       }}
                     >
-                      <span className="group-hover/item:text-[var(--accent-copper)] transition-colors">
+                      <span className="group-hover/item:text-(--accent-copper) transition-colors">
                         {service.name}
                       </span>
                       <div className="absolute inset-0 bg-white/5 rounded-lg transform scale-x-0 group-hover/item:scale-x-100 transition-transform duration-300 origin-left -z-10"></div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
 
-            <a
-              href="/pricing"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
+            {/* <Link
+              to="/pricing"
+              className="text-(--text-off-white) px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-(--accent-copper) transition-all"
             >
               Pricing
-              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
+              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-(--accent-copper) transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link> */}
 
+            {/* Resources Dropdown
             <div
               className="relative"
               onMouseEnter={() => handleMouseEnter("resources")}
@@ -129,8 +134,8 @@ const Navbar = () => {
                 onClick={() => toggleDropdown("resources")}
                 className={`flex items-center px-4 py-2 rounded-lg font-bold text-lg lg:text-xl transition-all group relative ${
                   activeDropdown === "resources"
-                    ? "text-[var(--accent-copper)] bg-white/5"
-                    : "text-[var(--text-off-white)] hover:text-[var(--accent-copper)] hover:bg-white/5"
+                    ? "text-(--accent-copper) bg-white/5"
+                    : "text-(--text-off-white) hover:text-(--accent-copper) hover:bg-white/5"
                 }`}
               >
                 Resources
@@ -140,7 +145,7 @@ const Navbar = () => {
                   }`}
                 />
                 <span
-                  className={`absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform transition-transform duration-300 origin-left ${
+                  className={`absolute bottom-1 left-4 right-4 h-0.5 bg-(--accent-copper) transform transition-transform duration-300 origin-left ${
                     activeDropdown === "resources"
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
@@ -148,62 +153,57 @@ const Navbar = () => {
                 ></span>
               </button>
               {activeDropdown === "resources" && (
-                <div className="absolute top-full left-0 mt-1 w-72 bg-[var(--navbar-bg)] border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
+                <div className="absolute top-full left-0 mt-1 w-72 bg-(--navbar-bg) border border-white/10 rounded-xl shadow-2xl py-3 animate-fadeIn backdrop-blur-md">
                   {resources.map((resource, idx) => (
-                    <a
+                    <Link
                       key={resource.path}
-                      href={resource.path}
-                      className="block px-6 py-4 text-[var(--text-off-white)] font-bold text-lg transition-all relative group/item hover:pl-10 border-l-4 border-transparent hover:border-[var(--accent-copper)] hover:text-[var(--accent-copper)]"
+                      to={resource.path}
+                      onClick={handleLinkClick}
+                      className="block px-6 py-4 text-(--text-off-white) font-bold text-lg transition-all relative group/item hover:pl-10 border-l-4 border-transparent hover:border-(--accent-copper) hover:text-(--accent-copper)"
                       style={{
                         animation: `slideIn 0.3s ease-out ${idx * 50}ms`,
                       }}
                     >
-                      <span className="group-hover/item:text-[var(--accent-copper)] transition-colors">
+                      <span className="group-hover/item:text-(--accent-copper) transition-colors">
                         {resource.name}
                       </span>
                       <div className="absolute inset-0 bg-white/5 rounded-lg transform scale-x-0 group-hover/item:scale-x-100 transition-transform duration-300 origin-left -z-10"></div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
-            </div>
+            </div> */}
 
-            <a
-              href="/blog"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
+            <Link
+              to="/comingsoon"
+              className="text-(--text-off-white) px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-(--accent-copper) transition-all"
             >
               Blog
-              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
+              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-(--accent-copper) transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
 
-            <a
-              href="/about"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
+            <Link
+              to="/about"
+              className="text-(--text-off-white) px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-(--accent-copper) transition-all"
             >
               About
-              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
+              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-(--accent-copper) transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
 
-            <a
-              href="/contact"
-              className="text-[var(--text-off-white)] px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-[var(--accent-copper)] transition-all"
+            <Link
+              to="/contact"
+              className="text-(--text-off-white) px-4 py-2 rounded-lg font-bold text-lg lg:text-xl group relative hover:text-(--accent-copper) transition-all"
             >
               Contact
-              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--accent-copper)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
-
-            {/* <a
-              href="/free-trial"
-              className="bg-[var(--accent-copper)] text-white px-8 py-2.5 rounded-full hover:shadow-xl hover:shadow-[var(--accent-copper)]/50 transform hover:scale-105 transition-all font-bold ml-4"
-            >
-              Free Trial
-            </a> */}
+              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-(--accent-copper) transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[var(--text-off-white)]"
+              className="text-(--text-off-white)"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -211,76 +211,67 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[var(--navbar-bg)] border-t border-white/10 max-h-[calc(100vh-80px)] overflow-y-auto">
+        <div className="md:hidden bg-(--navbar-bg) border-t border-white/10 max-h-[calc(100vh-80px)] overflow-y-auto">
           <div className="px-4 py-4 space-y-3">
-            <a
-              href="/"
+            <Link
+              to="/"
               onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
+              className="block text-(--text-off-white) hover:text-(--accent-copper) py-2 transition-colors"
             >
               Home
-            </a>
-            <a
-              href="/services/sms"
+            </Link>
+            {services.map((service) => (
+              <Link
+                key={service.path}
+                to={service.path}
+                onClick={handleLinkClick}
+                className="block text-(--text-off-white) hover:text-(--accent-copper) py-2 transition-colors"
+              >
+                {service.name}
+              </Link>
+            ))}
+            {/* <Link
+              to="/pricing"
               onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
-            >
-              SMS Solutions
-            </a>
-            <a
-              href="/services/did"
-              onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
-            >
-              DID Numbers
-            </a>
-            <a
-              href="/services/voice"
-              onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
-            >
-              Voice Services
-            </a>
-            <a
-              href="/pricing"
-              onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
+              className="block text-(--text-off-white) hover:text-(--accent-copper) py-2 transition-colors"
             >
               Pricing
-            </a>
-            <a
-              href="/blog"
+            </Link> */}
+            {/* <Link
+              to="/blog"
               onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
+              className="block text-(--text-off-white) hover:text-(--accent-copper) py-2 transition-colors"
             >
               Blog
-            </a>
-            <a
-              href="/about"
+            </Link> */}
+            <Link
+              to="/comingsoon"
               onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
+              className="block text-(--text-off-white) hover:text-(--accent-copper) py-2 transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
+              to="/about"
+              onClick={handleLinkClick}
+              className="block text-(--text-off-white) hover:text-(--accent-copper) py-2 transition-colors"
             >
               About
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               onClick={handleLinkClick}
-              className="block text-[var(--text-off-white)] hover:text-[var(--accent-copper)] py-2 transition-colors"
+              className="block text-(--text-off-white) hover:text-(--accent-copper) py-2 transition-colors"
             >
               Contact
-            </a>
-            {/* <a
-              href="/free-trial"
-              onClick={handleLinkClick}
-              className="block bg-[var(--accent-copper)] text-white px-6 py-2 rounded-full text-center font-medium hover:bg-[var(--accent-copper)]/90 transition-colors"
-            >
-              Free Trial
-            </a> */}
+            </Link>
           </div>
         </div>
       )}
 
+      {/* Animation */}
       <style>{`
         @keyframes slideIn {
           from {

@@ -1,4 +1,5 @@
 import { Calendar, User, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const blogPosts = [
   {
@@ -62,15 +63,15 @@ const Blog = () => {
     <div className="pt-24">
       {/* HERO SECTION */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--navbar-bg)]"></div>
+        <div className="absolute inset-0 bg-(--navbar-bg)"></div>
 
         {/* Background Blobs */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-96 h-96 bg-[var(--accent-copper)] rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[var(--accent-copper)] rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute top-10 left-10 w-96 h-96 bg-(--accent-copper) rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-(--accent-copper) rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
         </div>
 
-        <div className="relative z-10 text-center text-[var(--text-off-white)] px-4 max-w-7xl mx-auto">
+        <div className="relative z-10 text-center text-(--text-off-white) px-4 max-w-7xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Blog</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-80">
             Insights, tips, and news from the telecom industry
@@ -79,7 +80,7 @@ const Blog = () => {
       </section>
 
       {/* BLOG LIST SECTION */}
-      <section className="py-20 bg-[var(--body-bg)]">
+      <section className="py-20 bg-(--body-bg)">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
@@ -88,45 +89,45 @@ const Blog = () => {
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all cursor-pointer border border-black/5"
               >
                 <div
-                  className="h-48 bg-[var(--navbar-bg)] flex items-center justify-center relative overflow-hidden group"
+                  className="h-48 bg-(--navbar-bg) flex items-center justify-center relative overflow-hidden group"
                 >
-                  <div className="absolute inset-0 bg-[var(--accent-copper)] opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                  <div className="text-[var(--accent-copper)] text-6xl font-bold opacity-20">
+                  <div className="absolute inset-0 bg-(--accent-copper) opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                  <div className="text-(--accent-copper) text-6xl font-bold opacity-20">
                     {post.id}
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <div className="text-sm text-[var(--accent-copper)] font-semibold mb-2">
+                  <div className="text-sm text-(--accent-copper) font-semibold mb-2">
                     {post.category}
                   </div>
 
-                  <h2 className="text-2xl font-bold mb-3 text-[var(--heading-dark)] hover:text-[var(--accent-copper)] transition-colors">
+                  <h2 className="text-2xl font-bold mb-3 text-(--heading-dark) hover:text-(--accent-copper) transition-colors">
                     {post.title}
                   </h2>
 
-                  <p className="text-[var(--body-grey)] mb-4 line-clamp-3">
+                  <p className="text-(--body-grey) mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
 
                   {/* Author + Date */}
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div className="flex items-center text-sm text-[var(--body-grey)]/70">
-                      <User size={16} className="mr-2 text-[var(--accent-copper)]" />
+                    <div className="flex items-center text-sm text-(--body-grey)/70">
+                      <User size={16} className="mr-2 text-(--accent-copper)" />
                       {post.author}
                     </div>
-                    <div className="flex items-center text-sm text-[var(--body-grey)]/70">
-                      <Calendar size={16} className="mr-2 text-[var(--accent-copper)]" />
+                    <div className="flex items-center text-sm text-(--body-grey)/70">
+                      <Calendar size={16} className="mr-2 text-(--accent-copper)" />
                       {post.date}
                     </div>
                   </div>
 
-                  <a
-                    href={`/blog/${post.id}`}
-                    className="mt-4 inline-flex items-center text-[var(--accent-copper)] font-semibold hover:gap-2 transition-all"
+                  <Link
+                    to="/coming-soon"
+                    className="mt-4 inline-flex items-center text-(--accent-copper) font-semibold hover:gap-2 transition-all"
                   >
                     Read More <ArrowRight size={18} className="ml-1" />
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
@@ -134,7 +135,7 @@ const Blog = () => {
 
           {/* Load More Button */}
           <div className="mt-16 text-center">
-            <button className="bg-[var(--accent-copper)] text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transform hover:scale-105 transition-all">
+            <button className="bg-(--accent-copper) text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transform hover:scale-105 transition-all">
               Load More Articles
             </button>
           </div>
@@ -142,7 +143,7 @@ const Blog = () => {
       </section>
 
       {/* NEWSLETTER SECTION */}
-      <section className="py-16 bg-[var(--navbar-bg)] text-[var(--text-off-white)]">
+      <section className="py-16 bg-(--navbar-bg) text-(--text-off-white)">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h2 className="text-3xl font-bold mb-4">
             Subscribe to Our Newsletter
@@ -155,9 +156,9 @@ const Blog = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-3 rounded-full text-gray-800 outline-none focus:ring-2 focus:ring-[var(--accent-copper)]"
+              className="flex-1 px-6 py-3 rounded-full text-gray-800 outline-none focus:ring-2 focus:ring-(--accent-copper)"
             />
-            <button className="bg-[var(--accent-copper)] text-white px-8 py-3 rounded-full font-bold hover:bg-[var(--accent-copper)]/90 transition-colors">
+            <button className="bg-(--accent-copper) text-white px-8 py-3 rounded-full font-bold hover:bg-(--accent-copper)/90 transition-colors">
               Subscribe
             </button>
           </div>
